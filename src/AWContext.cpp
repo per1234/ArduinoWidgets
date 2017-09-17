@@ -52,6 +52,16 @@ static const AWInt OFFSET = 1 ;
 static const AWInt DELTA = OFFSET + SIZE / 2 ;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+//   weak functions for callback
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+extern "C" void callBackNoTouchVoid (void) {}
+extern "C" bool callBackTouchOnVoid (void) { return true ; }
+
+bool callBackTouchOn (void) __attribute__((weak, alias("callBackTouchOnVoid"))) ;
+void callBackNoTouch (void) __attribute__((weak, alias("callBackNoTouchVoid"))) ;
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 void AWContext::debugTouch (const AWColor & inColor) {
   gTouchDebugColor = inColor ;
@@ -89,6 +99,12 @@ AWRect AWContext::screenRect (void) {
 
 void addView (class AWView * inView) {
   gScreenView->addSubView (inView) ;
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+void addCenteredView (class AWView * inView) {
+  gScreenView->addCenteredSubView (inView) ;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

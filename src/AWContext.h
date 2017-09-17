@@ -39,6 +39,10 @@ void addView (class AWView * inView) ;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+void addCenteredView (class AWView * inView) ;
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 class AWContext {
   public : static void begin (const AWInt inScreenWidth,
                               const AWInt inScreenHeight,
