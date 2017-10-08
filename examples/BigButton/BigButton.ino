@@ -31,9 +31,6 @@ void bigButtonAction (AWView * inSender)
 {
   AWPushButton * sendingButton = (AWPushButton *) inSender ;
   buttonValue ++ ;
-  if (buttonValue > 9) {
-    buttonValue = 0 ;
-  }
   sendingButton->setTitle (String (buttonValue)) ;
 }
 
